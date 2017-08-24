@@ -13,5 +13,17 @@ describe('checkForShip', function () {
         };
 
         expect(checkForShip(player, [9, 9])).to.be.false;
-    })
+    });
+
+    it('should correctly report a ship at a given players coordinate', function () {
+        player = {
+            ships: [
+                {
+                    locations: [[0, 0]]
+                }
+            ]
+        };
+
+        expect(checkForShip(player, [0, 0])).to.be.true;
+    });
 });
