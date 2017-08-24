@@ -1,7 +1,7 @@
 var expect = require('chai').expect;
 
 function titleCase(title) {
-    return title;
+    return title.toUpperCase();
 }
 
 expect(titleCase('the great mouse detective')).to.be.a('string');
