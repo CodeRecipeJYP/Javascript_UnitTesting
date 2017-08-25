@@ -99,6 +99,8 @@ describe('damageShip', function () {
         };
 
         damageShip(ship, [0, 0]);
+
         expect(ship.damage).to.not.be.empty;
+        expect(ship.damage).to.include([0, 0]);
     });
 });
