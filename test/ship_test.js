@@ -24,7 +24,7 @@ describe('checkForShip', function () {
             ]
         };
 
-        expect(checkForShip(player, [0, 0])).to.be.true;
+        expect(checkForShip(player, [0, 0])).to.deep.equal(player.ships[0]);
     });
 
     it('should handle ships located at more than one coordinate', function () {
@@ -37,8 +37,8 @@ describe('checkForShip', function () {
         };
 
         // be careful for the expects more than one. It can be hard to read.
-        expect(checkForShip(player, [0, 1])).to.be.true;
-        expect(checkForShip(player, [0, 0])).to.be.true;
+        expect(checkForShip(player, [0, 0])).to.deep.equal(player.ships[0]);
+        expect(checkForShip(player, [0, 1])).to.deep.equal(player.ships[0]);
         expect(checkForShip(player, [9, 9])).to.be.false;
     });
 
@@ -54,10 +54,10 @@ describe('checkForShip', function () {
             ]
         };
 
-        expect(checkForShip(player, [0, 1])).to.be.true;
-        expect(checkForShip(player, [0, 0])).to.be.true;
-        expect(checkForShip(player, [1, 0])).to.be.true;
-        expect(checkForShip(player, [1, 1])).to.be.true;
+        expect(checkForShip(player, [0, 1])).to.deep.equal(player.ships[0]);
+        expect(checkForShip(player, [0, 0])).to.deep.equal(player.ships[0]);
+        expect(checkForShip(player, [1, 0])).to.deep.equal(player.ships[1]);
+        expect(checkForShip(player, [1, 1])).to.deep.equal(player.ships[1]);
         expect(checkForShip(player, [9, 9])).to.be.false;
     });
 
@@ -76,14 +76,14 @@ describe('checkForShip', function () {
             ]
         };
 
-        expect(checkForShip(player, [0, 1])).to.be.true;
-        expect(checkForShip(player, [0, 0])).to.be.true;
-        expect(checkForShip(player, [1, 0])).to.be.true;
-        expect(checkForShip(player, [1, 1])).to.be.true;
-        expect(checkForShip(player, [2, 0])).to.be.true;
-        expect(checkForShip(player, [2, 1])).to.be.true;
-        expect(checkForShip(player, [2, 2])).to.be.true;
-        expect(checkForShip(player, [2, 3])).to.be.true;
+        expect(checkForShip(player, [0, 1])).to.deep.equal(player.ships[0]);
+        expect(checkForShip(player, [0, 0])).to.deep.equal(player.ships[0]);
+        expect(checkForShip(player, [1, 0])).to.deep.equal(player.ships[1]);
+        expect(checkForShip(player, [1, 1])).to.deep.equal(player.ships[1]);
+        expect(checkForShip(player, [2, 0])).to.deep.equal(player.ships[2]);
+        expect(checkForShip(player, [2, 1])).to.deep.equal(player.ships[2]);
+        expect(checkForShip(player, [2, 2])).to.deep.equal(player.ships[2]);
+        expect(checkForShip(player, [2, 3])).to.deep.equal(player.ships[2]);
         expect(checkForShip(player, [9, 9])).to.be.false;
     });
 });
@@ -120,6 +120,6 @@ describe('fire', function () {
         };
 
         fire(player, [0, 0]);
-        expect(player.damage).to.deep.equal([0, 0])
+        expect(player.ships[0].damage[0]).to.deep.equal([0, 0])
     })
 });
