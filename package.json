@@ -6,7 +6,9 @@
   "directories": {
     "test": "test"
   },
-  "dependencies": {},
+  "dependencies": {
+    "type-detect": "^4.0.3"
+  },
   "devDependencies": {
     "chai": "^4.1.1",
     "mocha": "^2.5.3"
